@@ -1,0 +1,87 @@
+function timer_start {
+  timer=${timer:-$(date +%s%N)/1000000}
+}
+
+function timer_stop {
+	millis=$(($(date +%s%N)/1000000 - $timer))
+	if [[ $millis -ge 1000 ]] ; then
+		timer_mout="$(($millis/1000))"s ;
+	else
+		timer_mout="$millis"ms ;
+	fi
+	unset timer
+}
+
+trap 'timer_start' DEBUG
+PROMPT_COMMAND="timer_stop"
+
+declare -a sups=($'\xe2\x81\xb0' $'\xc2\xb9' $'\xc2\xb2' $'\xc2\xb3' $'\xe2\x81\xb4' $'\xe2\x81\xb5' $'\xe2\x81\xb6' $'\xe2\x81\xb7' $'\xe2\x81\xb8' $'\xe2\x81\xb9' $'\xe2\x81\xbA')
+declare -a subs=($'\xe2\x82\x80' $'\xe2\x82\x81' $'\xe2\x82\x82' $'\xe2\x82\x83' $'\xe2\x82\x84' $'\xe2\x82\x85' $'\xe2\x82\x86' $'\xe2\x82\x87' $'\xe2\x82\x88' $'\xe2\x82\x89' $'\xe2\x82\x8A')
+
+
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		STAT=`parse_git_dirty`
+		echo "${BRANCH}${STAT}"
+	else
+		echo ""
+	fi
+}
+
+
+function parse_git_dirty {
+	status=`git status 2>&1 | tee`
+	commits=`echo "${status}" 2> /dev/null | grep "Your branch is ahead" | grep -Po "(\\d)*"`
+	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+	
+	newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+	renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+	bits=""
+
+	
+	
+	if [ "${renamed}" == "0" ]; then
+		bits=">${bits}"
+	fi
+	if [ "${newfile}" == "0" ]; then
+		bits="+${bits}"
+	fi
+	if [ "${untracked}" == "0" ]; then
+		bits="?${bits}"
+	fi
+	if [ "${deleted}" == "0" ]; then
+		bits="x${bits}"
+	fi
+	if [ "${dirty}" == "0" ]; then
+		bits="!${bits}"
+	fi
+	if [ ! "${bits}" == "" ]; then
+		if [ -n "${commits}" ]; then
+			if [ "$commits" -lt 10 ]; then
+				 bits="${subs[${commits}]} ${bits}"
+			else
+				bits="${subs[10]} ${bits}"
+		fi
+	fi
+		echo "${bits}"
+	else
+		echo ""
+	fi
+}
+TIME_PROMPT=$'\e[s\]\[\e[1;\$((COLUMNS-7))f\]\t\[\e[u'
+
+ORANGE=$'\e[38;05;202m'
+BLUE=$'\e[38;05;69m'
+PINK=$'\e[38;05;198m'
+YELLOW=$'\e[38;05;222m'
+VOILET=$'\e[38;05;135m'
+GREEN=$'\e[38;05;154m'
+WHITE=$'\e[38;05;7m'
+BOLD=$'\e[1m'
+R=$'\e[0m'
+
+export PS1='\[${GREEN}\][${timer_mout}] \[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch)\[${R}\] \[${ORANGE}\]\$ \[${R}\]'

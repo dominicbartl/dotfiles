@@ -1,0 +1,9 @@
+#!/bin/bash
+#for file in .bash*
+#do
+#	source "$file"
+#done
+
+source ~/bin/dotfiles/.bash_aliases
+source ~/bin/dotfiles/.bash_prompt
+source ~/bin/dotfiles/.environment
