@@ -3,7 +3,10 @@
 #do
 #	source "$file"
 #done
+DOTFILES=$(readlink -f ./)
+export PATH=$PATH:$DOTFILES/scripts
 
-source ~/bin/dotfiles/.bash_aliases
-source ~/bin/dotfiles/.bash_prompt
-source ~/bin/dotfiles/.environment
+# Sourcing some stuff
+source $DOTFILES/.bash_aliases
+source $DOTFILES/.bash_prompt
+source $DOTFILES/.environment
