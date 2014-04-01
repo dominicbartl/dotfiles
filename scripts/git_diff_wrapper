@@ -1,4 +1,3 @@
 #!/bin/sh
 #echo $*
-vimdiff "$4" "$2"
-#this is a new line i dont need
+vimdiff "$5" "$2"
