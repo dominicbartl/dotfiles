@@ -12,3 +12,7 @@
   dump = cat-file -p
 [push]
 	default = simple
+[diff]
+	external = git_diff_wrapper
+[pager]
+	diff =

@@ -1,2 +1,3 @@
-#!/bin/bash
-vimdiff "$1" "$2"
+#!/bin/sh
+#echo $*
+vimdiff "$2" "$5"
