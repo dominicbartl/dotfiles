@@ -3,7 +3,7 @@
 #do
 #	source "$file"
 #done
-DOTFILES=$(readlink -f ./)
+DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PATH=$PATH:$DOTFILES/scripts
 
 # Sourcing some stuff
