@@ -5,3 +5,4 @@ export ANDROID_HOME=~/bin/android-studio/sdk
 
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 export JETTY_HOME=/opt/jetty
+export EDITOR=vim
