@@ -18,3 +18,5 @@
 	diff =
 [core]
 	editor = vim
+[branch]
+	autosetuprebase = always
