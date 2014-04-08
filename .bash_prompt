@@ -1,3 +1,4 @@
+#!/bin/bash
 function timer_start {
   timer=${timer:-$(date +%s%N)/1000000}
 }
@@ -43,6 +44,13 @@ function parse_git_dirty {
 	bits=""
 
 	
+	if [ -n "${commits}" ]; then
+		if [ "$commits" -lt 10 ]; then
+			bits="${subs[${commits}]} ${bits}"
+		else
+			bits="${subs[10]} ${bits}"
+		fi
+	fi
 	
 	if [ "${renamed}" == "0" ]; then
 		bits=">${bits}"
@@ -60,13 +68,6 @@ function parse_git_dirty {
 		bits="!${bits}"
 	fi
 	if [ ! "${bits}" == "" ]; then
-		if [ -n "${commits}" ]; then
-			if [ "$commits" -lt 10 ]; then
-				 bits="${subs[${commits}]} ${bits}"
-			else
-				bits="${subs[10]} ${bits}"
-		fi
-	fi
 		echo "${bits}"
 	else
 		echo ""
