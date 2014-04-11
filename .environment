@@ -3,6 +3,8 @@ export JDK_HOME=/usr/lib/jvm/java-7-oracle
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 export ANDROID_HOME=~/bin/android-studio/sdk
 
-export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+LIQUIBASE_DIR=~/bin/liquibase
+
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$LIQUIBASE_DIR:$PATH"
 export JETTY_HOME=/opt/jetty
 export EDITOR=vim
