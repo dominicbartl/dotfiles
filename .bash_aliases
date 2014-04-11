@@ -9,3 +9,7 @@ alias llg="ll|grep"
 alias x="exit"
 alias c="clear"
 alias elastic="sudo /etc/init.d/elasticsearch start"
+
+function fzip {
+    zip -r $1 $1
+}
