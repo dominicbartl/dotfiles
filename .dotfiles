@@ -3,7 +3,7 @@
 #do
 #	source "$file"
 #done
-export DOTFILE=S"$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PATH=$PATH:$DOTFILES/scripts
 
 # Sourcing some stuff
