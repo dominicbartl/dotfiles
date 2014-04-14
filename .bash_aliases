@@ -1,3 +1,6 @@
+#!/bin/bash
+
+alias df="dotfiles"
 alias ..="cd .."
 alias ...="cd ../.."
 function mkcd {
@@ -13,3 +16,5 @@ alias elastic="sudo /etc/init.d/elasticsearch start"
 function fzip {
     zip -r $1 $1
 }
+
+alias tree='tree -I ".git|bower_components"'
