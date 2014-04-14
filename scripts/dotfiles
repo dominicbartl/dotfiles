@@ -1,3 +1,20 @@
 #!/bin/bash
 
 echo "This is a script which yet, does nothing :)"
+
+ACTION=$1
+shift
+
+declare -A funcs
+funcs[test]=testf;
+funcs[update]=update;
+
+testf() {
+	echo "I'm the testf function"
+}
+
+update() {
+	echo "Should I update something?"
+}
+
+${funcs[${ACTION}]}
