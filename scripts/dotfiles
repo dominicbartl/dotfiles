@@ -17,7 +17,7 @@ testf() {
 
 update() {
 	echo "Reloading ${ORANGE}${BOLD}.dotfiles${R}"
-	source ../.dotfiles
+	source ${DOTFILES}/.dotfiles
 }
 
 ${funcs[${ACTION}]}
