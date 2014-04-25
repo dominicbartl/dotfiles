@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "This is a script which yet, does nothing :)"
+ORANGE=$'\e[38;05;202m'
+BOLD=$'\e[1m'
+R=$'\e[0m'
 
 ACTION=$1
 shift
@@ -14,7 +16,8 @@ testf() {
 }
 
 update() {
-	echo "Should I update something?"
+	echo "Reloading ${ORANGE}${BOLD}.dotfiles${R}"
+	source ../.dotfiles
 }
 
 ${funcs[${ACTION}]}
