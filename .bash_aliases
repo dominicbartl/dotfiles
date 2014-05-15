@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias df="dotfiles"
+alias df="source dotfiles"
 alias ..="cd .."
 alias ...="cd ../.."
 function mkcd {
