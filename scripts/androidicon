@@ -1,0 +1,46 @@
+#!/bin/bash
+LDPI=
+MDPI=
+HDPI=
+XHDPI=
+XXHDPI=
+XXXHDPI=
+declare -a RES=('36x36' '48x48' '72x72' '96x96' '144x144' '192x192')
+declare -a DIR=('drawable-ldpi' 'drawable-mdpi' 'drawable-hdpi' 'drawable-xhdpi' 'drawable-xxhdpi' 'drawable-xxxhdpi')
+
+function printhelp {
+	echo "==============================================="
+	echo "             USAGE"
+	echo "androidicon <high-res-img> <res-folder> <name>"
+	echo "<name is optional, default ic_launcher.png"
+	echo "==============================================="
+}
+
+echo $1
+echo $2
+NAME=$3
+
+if ! [ -n "$1" ]; then
+	printhelp
+fi
+
+if ! [ -n "$3" ]; then
+	NAME="ic_launcher.png"
+fi
+
+if [ -d "$2" ]; then
+  # Control will enter here if $DIRECTORY exists.
+fi
+
+for i in "${arrayName[@]}"
+do
+   :
+   # do whatever on $i
+done
+
+convert -resize $LDPI $1 $2/drawable-ldpi/$NAME
+convert -resize $MDPI $1 $2/drawable-mdpi/$NAME
+convert -resize $HDPI $1 $2/drawable-hdpi/$NAME
+convert -resize $XHDPI $1 $2/drawable-xhdpi/$NAME
+convert -resize $XXHDPI $1 $2/drawable-xxhdpi/$NAME
+convert -resize $XXXHDPI $1 $2/drawable-xxxhdpi/$NAME
