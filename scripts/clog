@@ -1,3 +1,2 @@
 #!/bin/bash
-
 adb -s $1 logcat | ${DOTFILES}/scripts/coloredlogcat.py
