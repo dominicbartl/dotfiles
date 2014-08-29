@@ -34,7 +34,7 @@ function parse_git_branch() {
 
 function parse_git_dirty {
 	status=`git status 2>&1 | tee`
-	commits=`echo "${status}" 2> /dev/null | grep "Your branch is ahead" | grep -Po "(\\d)*"`
+	commits=`git rev-list @{u}..|wc -l`
 	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
 	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
 	
