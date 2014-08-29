@@ -22,3 +22,5 @@ alias tree='tree -I ".git|bower_components"'
 function wiki {
 	dig +short txt ${1}.wp.dg.cx
 }
+
+alias remember='vimcat $DOTFILES/REMEMBERME.md'
