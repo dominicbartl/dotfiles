@@ -46,9 +46,9 @@ function parse_git_dirty {
 	
 	if [[ -n "${commits}" && "${commits}" -gt 0 ]]; then
 		if [ "$commits" -lt 10 ]; then
-			bits="${subs[${commits}]} ${bits}"
+			bits="${subs[${commits}]}${bits}"
 		else
-			bits="${subs[10]} ${bits}"
+			bits="${subs[10]}${bits}"
 		fi
 	fi
 	
@@ -85,4 +85,4 @@ WHITE=$'\e[38;05;7m'
 BOLD=$'\e[1m'
 R=$'\e[0m'
 
-export PS1='\[${GREEN}\][${timer_mout}] \[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch)\[${R}\] \[${ORANGE}\]\$ \[${R}\]'
+export PS1='\[${GREEN}\][${timer_mout}] \[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
