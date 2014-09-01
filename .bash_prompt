@@ -44,7 +44,7 @@ function parse_git_dirty {
 	bits=""
 
 	
-	if [ -n "${commits}" ]; then
+	if [ -n "${commits}" && "${commits}" -gt 0 ]; then
 		if [ "$commits" -lt 10 ]; then
 			bits="${subs[${commits}]} ${bits}"
 		else
