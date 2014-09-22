@@ -7,7 +7,10 @@ function mkcd {
 	mkdir $1
 	cd $1
 }
-alias myip="ifconfig|grep \"inet addr\""
+function myip {
+	ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+	curl ipecho.net/plain ; echo
+}
 alias llg="ll|grep"
 alias x="exit"
 alias c="clear"
