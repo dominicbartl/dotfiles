@@ -10,6 +10,7 @@ shift
 declare -A funcs
 funcs[test]=testf;
 funcs[update]=update;
+funcs[upgrade]=upgrade;
 
 testf() {
 	echo "I'm the testf function"
@@ -18,6 +19,14 @@ testf() {
 update() {
 	echo "Reloading ${ORANGE}${BOLD}.dotfiles${R}"
 	source ${DOTFILES}/.dotfiles
+}
+
+upgrade() {
+	echo "${ORANGE}${BOLD}Pulling repository...${R}"
+	cd ${DOTFILES}
+	git pull origin master
+	update
+	cd -
 }
 
 ${funcs[${ACTION}]}
