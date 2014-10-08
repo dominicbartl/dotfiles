@@ -1,11 +1,11 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
+	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Markdown",
-		"Vintage"
+		"Vintage",
+		"Markdown"
 	],
-	"tab_size": 4,
-	"hot_exit": false,
-	"remember_open_files": false
+	"remember_open_files": false,
+	"tab_size": 4
 }
