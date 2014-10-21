@@ -27,3 +27,4 @@ function wiki {
 }
 
 alias remember='vimcat $DOTFILES/REMEMBERME.md'
+alias vc='vimcat'
