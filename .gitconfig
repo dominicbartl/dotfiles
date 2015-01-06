@@ -24,6 +24,9 @@
 	editor = vim
 [branch]
 	autosetuprebase = always
+[gitflow "branch"]
+	master = master
+	develop = develop
 [gitflow "prefix"]
 	feature = feature/
 	release = release/
