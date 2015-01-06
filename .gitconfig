@@ -24,3 +24,9 @@
 	editor = vim
 [branch]
 	autosetuprebase = always
+[gitflow "prefix"]
+	feature = feature/
+	release = release/
+	hotfix = hotfix/
+	support = support/
+	versiontag = 
