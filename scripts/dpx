@@ -1,0 +1,27 @@
+#!/bin/bash
+
+function phelp {
+	echo "Usage: "
+	echo "    $ dpx <integer>"
+	echo "Example:"
+	echo "    $ dpx 42"
+
+}
+
+re='^[0-9]+$'
+if ! [[ $1 =~ $re ]] ; then
+   phelp
+   exit 1
+fi
+
+mdpi=$(echo "$1" | bc)
+hdpi=$(echo "$1*1.6/1" | bc)
+xhdpi=$(echo "$1*2" | bc)
+xxhdpi=$(echo "$1*3" | bc)
+xxxhdpi=$(echo "$1*4" | bc)
+
+echo -e "MDPI:\t $1dp = ${mdpi}px"
+echo -e "HDPI:\t $1dp = ${hdpi}px"
+echo -e "XHDPI:\t $1dp = ${xhdpi}px"
+echo -e "XXHDPI:\t $1dp = ${xxhdpi}px"
+echo -e "XXXHDPI: $1dp = ${xxxhdpi}px"
