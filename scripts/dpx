@@ -5,7 +5,6 @@ function phelp {
 	echo "    $ dpx <integer>"
 	echo "Example:"
 	echo "    $ dpx 42"
-
 }
 
 re='^[0-9]+$'
