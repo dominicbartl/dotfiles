@@ -4,6 +4,11 @@ ORANGE=$'\e[38;05;202m'
 BOLD=$'\e[1m'
 R=$'\e[0m'
 
+if ! [ -n "$1" ]; then
+	cd $DOTFILES;
+	return;
+fi
+
 ACTION=$1
 shift
 
