@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# toggle var
+if [ "$SMALL_PROMPT" -eq 1 ]
+	then
+	export SMALL_PROMPT=0
+else
+	export SMALL_PROMPT=1
+fi
+
+source $DOTFILES/.bash_prompt

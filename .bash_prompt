@@ -85,4 +85,14 @@ WHITE=$'\e[38;05;7m'
 BOLD=$'\e[1m'
 R=$'\e[0m'
 
-export PS1='\[${GREEN}\][${timer_mout}] \[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
+echo $SMALL_PROMPT
+
+if [ "$SMALL_PROMPT" -eq 0 ]
+	then
+	export PS1='\[${GREEN}\][${timer_mout}] \[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
+else
+	export PS1='\[${YELLOW}\]\W \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
+fi
+
+
+
