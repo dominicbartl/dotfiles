@@ -1,11 +1,13 @@
 #!/bin/bash
 
+small=$(cat $DOTFILES_DATA/.smallprompt)
+
 # toggle var
-if [ "$SMALL_PROMPT" -eq 1 ]
+if [ $small -eq 1 ]
 	then
-	export SMALL_PROMPT=0
+	echo 0 > $DOTFILES_DATA/.smallprompt
 else
-	export SMALL_PROMPT=1
+	echo 1 > $DOTFILES_DATA/.smallprompt
 fi
 
-source $DOTFILES/.bash_prompt
+source ${DOTFILES}/.bash_prompt

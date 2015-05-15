@@ -1,5 +1,5 @@
 #!/bin/bash
-MATERIAL_DIR=$DOTFILES/data/material-design-icons
+MATERIAL_DIR=$DOTFILES_DATA/material-design-icons
 
 _getDirectories () {
 	local word=${COMP_WORDS[COMP_CWORD]}

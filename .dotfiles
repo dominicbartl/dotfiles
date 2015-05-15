@@ -7,7 +7,7 @@ export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PATH=$PATH:$DOTFILES/scripts
 
 # set default prompt to large one
-export SMALL_PROMPT=0
+export DOTFILES_DATA="$DOTFILES/data"
 
 # Sourcing some stuff
 source $DOTFILES/.bash_aliases

@@ -85,11 +85,13 @@ WHITE=$'\e[38;05;7m'
 BOLD=$'\e[1m'
 R=$'\e[0m'
 
-if [ "$SMALL_PROMPT" -eq 0 ]
+small=$(cat $DOTFILES_DATA/.smallprompt)
+if [ $small -eq 1 ]
 	then
 	export PS1='\[${GREEN}\][${timer_mout}] \[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
 else
 	export PS1='\[${YELLOW}\]\W \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
+
 fi
 
 
