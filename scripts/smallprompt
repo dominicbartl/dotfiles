@@ -9,5 +9,4 @@ if [ $small -eq 1 ]
 else
 	echo 1 > $DOTFILES_DATA/.smallprompt
 fi
-
-source ${DOTFILES}/.bash_prompt
+df update
