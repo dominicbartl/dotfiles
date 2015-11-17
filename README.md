@@ -8,3 +8,7 @@
 
 ## Source (.bashrc, .bash_profile, .profile)
     source dotfiles/.dotfiles
+
+## Installed programs
+    https://github.com/XCMer/fuzzy-window-switcher
+    https://github.com/brndnmtthws/conky
