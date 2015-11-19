@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function join { local IFS="$1"; shift; echo "$*"; }
+
+echo "Loading gitignore.io for $@"
+
+p=$(printf ",%s" "${@}")
+p=${p:1}
+curl -L -s "https://www.gitignore.io/api/$p" >> .gitignore
