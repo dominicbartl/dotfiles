@@ -16,6 +16,7 @@ declare -A funcs
 funcs[test]=testf;
 funcs[update]=update;
 funcs[upgrade]=upgrade;
+funcs[setup]=setup;
 
 testf() {
 	echo "I'm the testf function"
@@ -33,6 +34,15 @@ upgrade() {
 	git pull origin master
 	update
 	cd ${odir}
+}
+
+setup() {
+	echo "Create .gitconfig symlink"
+	ln -s ${DOTFILES}/.gitconfig ~/.gitconfig
+	echo "Create .vimrc symlink"
+	ln -s ${DOTFILES}/.vimrc ~/.vimrc
+	DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	echo -e "\n\n#Added by .dotfiles setup script\nsource $DOTFILES/.dotfiles" >> ~/.bashrc
 }
 
 ${funcs[${ACTION}]}
