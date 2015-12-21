@@ -41,7 +41,7 @@ setup() {
 	ln -s ${DOTFILES}/.gitconfig ~/.gitconfig
 	echo "Create .vimrc symlink"
 	ln -s ${DOTFILES}/.vimrc ~/.vimrc
-	DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
 	echo -e "\n\n#Added by .dotfiles setup script\nsource $DOTFILES/.dotfiles" >> ~/.bashrc
 }
 
