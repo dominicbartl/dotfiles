@@ -35,3 +35,5 @@ eval "$(thefuck --alias)"
 eval "$(thefuck --alias fuck)"
 
 alias toggl='node ~/workspace/toggl-summary/index.js'
+
+alias mys='mysql -u root'
