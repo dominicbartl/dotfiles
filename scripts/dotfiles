@@ -17,6 +17,7 @@ funcs[test]=testf;
 funcs[update]=update;
 funcs[upgrade]=upgrade;
 funcs[setup]=setup;
+funcs[fixkeyboard]=fixkeyboard;
 
 testf() {
 	echo "I'm the testf function"
@@ -56,7 +57,7 @@ setup() {
 	#echo -e "\n\n#Added by .dotfiles setup script\nsource $DOTFILES/.dotfiles" >> ~/.bashrc
 }
 
-fixkeyboadrd() {
+fixkeyboard() {
 	ibus-daemon -rd
 }
 
