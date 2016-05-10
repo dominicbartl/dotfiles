@@ -56,4 +56,8 @@ setup() {
 	#echo -e "\n\n#Added by .dotfiles setup script\nsource $DOTFILES/.dotfiles" >> ~/.bashrc
 }
 
+fixkeyboadrd() {
+	ibus-daemon -rd
+}
+
 ${funcs[${ACTION}]}
