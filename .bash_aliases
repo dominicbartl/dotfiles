@@ -20,7 +20,7 @@ function fzip {
     zip -r $1 $1
 }
 
-alias tree='tree -I ".git|bower_components"'
+alias tree='tree -I ".git|bower_components|node_modules"'
 
 function wiki {
 	dig +short txt ${1}.wp.dg.cx
