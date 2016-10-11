@@ -13,3 +13,6 @@
 ## Installed programs
     https://github.com/XCMer/fuzzy-window-switcher
     https://github.com/brndnmtthws/conky
+
+## Run mkdb on server
+   bash <(curl -s https://raw.githubusercontent.com/Bartinger/dotfiles/master/scripts/mkdb)
