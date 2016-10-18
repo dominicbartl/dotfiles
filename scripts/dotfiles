@@ -18,6 +18,7 @@ funcs[update]=update;
 funcs[upgrade]=upgrade;
 funcs[setup]=setup;
 funcs[fixkeyboard]=fixkeyboard;
+funcs[edit]=edit;
 
 testf() {
 	echo "I'm the testf function"
@@ -59,6 +60,10 @@ setup() {
 
 fixkeyboard() {
 	ibus-daemon -rd
+}
+
+edit() {
+	subl ${DOTFILES}
 }
 
 ${funcs[${ACTION}]}
