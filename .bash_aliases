@@ -30,9 +30,9 @@ alias remember='vimcat $DOTFILES/REMEMBERME.md'
 alias vc='vimcat'
 alias art='php artisan'
 
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
 # You can use whatever you want as an alias, like for Mondays:
-eval "$(thefuck --alias fuck)"
+#eval "$(thefuck --alias fuck)"
 
 alias toggl='node ~/workspace/toggl-summary/index.js'
 

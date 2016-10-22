@@ -80,7 +80,7 @@ BLUE=$'\e[38;05;69m'
 PINK=$'\e[38;05;198m'
 YELLOW=$'\e[38;05;222m'
 VOILET=$'\e[38;05;135m'
-GREEN=$'\e[38;05;154m'
+GREEN=$'\e[38;05;148m'
 WHITE=$'\e[38;05;7m'
 BOLD=$'\e[1m'
 R=$'\e[0m'
@@ -88,9 +88,9 @@ R=$'\e[0m'
 #	small=$(cat $DOTFILES_DATA/.smallprompt)
 #if [ $small -eq 1 ]
 #	then
-	export PS1='\[${GREEN}\][${timer_mout}] \[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
+	export PS1='\[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
 #else
-#	export PS1='\[${YELLOW}\]\W \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
+#	export PS1='\[${YELLOW}\]\W\[${BOLD}\]\[${BLUE}\]$(parse_git_branch)\[${R}\]\[${ORANGE}\]\$ \[${R}\]'
 
 #fi
 
