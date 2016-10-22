@@ -43,11 +43,11 @@ setup() {
 	
 	# GIT
 	echo "Create .gitconfig symlink"
-	#ln -s ${DOTFILES}/.gitconfig ~/.gitconfig
+	ln -s ${DOTFILES}/.gitconfig ~/.gitconfig
 	
 	# VIM
 	echo "Create .vimrc symlink"
-	#ln -s ${DOTFILES}/.vimrc ~/.vimrc
+	ln -s ${DOTFILES}/.vimrc ~/.vimrc
 
 	# Sublime
 	echo "Create Sublime Text preferences symlink"
@@ -55,7 +55,7 @@ setup() {
 	mkdir -p $sublDir
 	ln -s ${DOTFILES}/config/Preferences.sublime-settings ${sublDir}/Preferences.sublime-settings
 	
-	#echo -e "\n\n#Added by .dotfiles setup script\nsource $DOTFILES/.dotfiles" >> ~/.bashrc
+	echo -e "\n\n#Added by .dotfiles setup script\nsource $DOTFILES/.dotfiles" >> ~/.bashrc
 }
 
 fixkeyboard() {
