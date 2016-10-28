@@ -12,6 +12,7 @@ function myip {
 	curl ipecho.net/plain ; echo
 }
 alias llg="ll|grep"
+alias ll="ls -ahl"
 alias x="exit"
 alias c="clear"
 alias elastic="sudo /etc/init.d/elasticsearch start"
