@@ -19,6 +19,8 @@ funcs[upgrade]=upgrade;
 funcs[setup]=setup;
 funcs[fixkeyboard]=fixkeyboard;
 funcs[edit]=edit;
+funcs[key]=key;
+
 
 testf() {
 	echo "I'm the testf function"
@@ -64,6 +66,10 @@ fixkeyboard() {
 
 edit() {
 	subl ${DOTFILES}
+}
+
+key() {
+	cat ~/.ssh/id_rsa.pub
 }
 
 ${funcs[${ACTION}]}
