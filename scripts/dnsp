@@ -28,7 +28,7 @@
 #
 
 DOMAIN=""
-REGEX="^[a-zA-Z0-9\.-]*(.com|.net|.org|.gov|.br|.es|.uk)$"
+REGEX="^[a-zA-Z0-9\.-]*(.com|.net|.org|.gov|.br|.es|.uk|.at|.de)$"
 
 # Adding more servers
 # The variable which stores IPs uses spaces as
