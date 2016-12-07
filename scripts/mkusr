@@ -1,0 +1,9 @@
+
+$newuser=john
+
+adduser --gecos $newuser
+su - $newuser
+ssh-keygen -t rsa -b 4096 -C "${user}@${HOSTNAME}"
+touch .ssh/authorized_keys
+chmod 600 .ssh/authorized_keys
+echo -e "# Add your public keys" > .ssh/authorized_keys

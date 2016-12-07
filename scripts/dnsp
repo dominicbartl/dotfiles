@@ -110,16 +110,10 @@ else
     DOMAIN="$REPLY"
 fi
 
-if [[ $DOMAIN =~ $REGEX ]]; then
-    if ping -c 1 $DOMAIN > /dev/null 2>&1; then
+ if ping -c 1 $DOMAIN > /dev/null 2>&1; then
         main
         exit $?
     else
-        echo -e "\n$DOMAIN is offline or there is a problem with your link."
-        echo -e "Check out this issue and try again.\n"
+        echo -e "\n$DOMAIN is offline or you misstyped the domain."
         exit 2
     fi
-else
-    echo "$USAGE"
-    exit 1
-fi
