@@ -30,11 +30,3 @@ SQL="${Q1}${Q2}${Q3}${Q4}"
 
 mysql -u root -p -e "$SQL"
 echo "Created database \"$database\" for user \"$user\""
-
-# Should I destroy myself ?
-read -p "Delete `basename $0` script? (y/N):" -n 1 -r
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-	rm -- "$0"
-fi
