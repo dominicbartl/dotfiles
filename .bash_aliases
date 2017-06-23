@@ -3,6 +3,11 @@
 alias df="source dotfiles"
 alias ..="cd .."
 alias ...="cd ../.."
+function cd_up() {
+  cd $(printf "%0.s../" $(seq 1 $1 ));
+}
+alias 'cd..'='cd_up'
+
 function mkcd {
 	mkdir $1
 	cd $1
@@ -38,3 +43,15 @@ alias art='php artisan'
 alias toggl='node ~/workspace/toggl-summary/index.js'
 
 alias mys='mysql -u root'
+
+alias tg='~/bin/tg/bin/telegram-cli'
+
+call() {
+    if [[ $@ == "china" ]]; then
+        command ssh swandoo
+    else
+        command call "$@"
+    fi
+}
+
+alias work='cd ~/workspace'
