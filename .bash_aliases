@@ -54,4 +54,4 @@ call() {
     fi
 }
 
-alias work='cd ~/workspace'
+alias w='work'
