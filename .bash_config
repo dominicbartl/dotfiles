@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# load machine specific settings
+source $DOTFILES/machines/${HOSTNAME}/.bashrc
+
 # This piece of code colorizes the man pages
 man() {
 	env \
