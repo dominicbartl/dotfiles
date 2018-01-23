@@ -20,6 +20,7 @@ funcs[setup]=setup;
 funcs[fixkeyboard]=fixkeyboard;
 funcs[edit]=edit;
 funcs[key]=key;
+funcs[fixmysql]=fixmysql;
 
 
 testf() {
@@ -70,6 +71,12 @@ edit() {
 
 key() {
 	cat ~/.ssh/id_rsa.pub
+}
+
+fixmysql() {
+	sudo mysql -u root -e "update mysql.user set plugin='mysql_native_password' where User = 'root';"
+	sudo systemctl restart mysql.service
+	echo "Fixed it!"
 }
 
 ${funcs[${ACTION}]}
