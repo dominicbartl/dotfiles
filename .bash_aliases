@@ -13,7 +13,8 @@ function mkcd {
 	cd $1
 }
 function myip {
-	ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+	ifconfig enp2s0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+    ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
 	curl ipecho.net/plain ; echo
 }
 alias llg="ll|grep"
