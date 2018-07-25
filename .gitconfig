@@ -15,6 +15,7 @@
   lg = !"git lg1"
   q = log --oneline @{u}..
   up = "!git fetch && git rebase --autostash"
+  ca = commit -a
 [push]
 	default = simple
 [diff]

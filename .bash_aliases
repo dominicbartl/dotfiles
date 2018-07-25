@@ -13,8 +13,8 @@ function mkcd {
 	cd $1
 }
 function myip {
-	ifconfig enp2s0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
-    ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+	(ifconfig enp2s0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}') || echo "enp2s0 not available"
+    (ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}') || echo "wlan0 not available"
 	curl ipecho.net/plain ; echo
 }
 alias llg="ll|grep"
@@ -32,6 +32,8 @@ alias tree='tree -I ".git|bower_components|node_modules"'
 function wiki {
 	dig +short txt ${1}.wp.dg.cx
 }
+
+alias open='xdg-open'
 
 alias remember='vimcat $DOTFILES/REMEMBERME.md'
 alias vc='vimcat'
