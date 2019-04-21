@@ -25,7 +25,7 @@ function parse_git_branch() {
 	if [ ! "${BRANCH}" == "" ]
 	then
 		STAT=`parse_git_dirty`
-		echo "${BRANCH}${STAT}"
+		echo " ${BRANCH}${STAT}"
 	else
 		echo ""
 	fi
@@ -76,7 +76,7 @@ function parse_git_dirty {
 TIME_PROMPT=$'\e[s\]\[\e[1;\$((COLUMNS-7))f\]\t\[\e[u'
 
 ORANGE=$'\e[38;05;202m'
-BLUE=$'\e[38;05;69m'
+BLUE=$'\e[01;34m'
 PINK=$'\e[38;05;198m'
 YELLOW=$'\e[38;05;222m'
 VOILET=$'\e[38;05;135m'
@@ -88,7 +88,7 @@ R=$'\e[0m'
 #	small=$(cat $DOTFILES_DATA/.smallprompt)
 #if [ $small -eq 1 ]
 #	then
-	export PS1='\[${YELLOW}\]\w \[${BOLD}\]\[${BLUE}\]$(parse_git_branch) \[${R}\]\[${ORANGE}\]\$ \[${R}\]'
+	export PS1='\[${BOLD}\]\[${GREEN}\]\w\[${BLUE}\]$(parse_git_branch)\[${R}\]\$ '
 #else
 #	export PS1='\[${YELLOW}\]\W\[${BOLD}\]\[${BLUE}\]$(parse_git_branch)\[${R}\]\[${ORANGE}\]\$ \[${R}\]'
 
