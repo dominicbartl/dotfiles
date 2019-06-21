@@ -21,6 +21,7 @@ funcs[fixkeyboard]=fixkeyboard;
 funcs[edit]=edit;
 funcs[key]=key;
 funcs[fixmysql]=fixmysql;
+funcs[hook]=hook;
 
 
 testf() {
@@ -77,6 +78,10 @@ fixmysql() {
 	sudo mysql -u root -e "update mysql.user set plugin='mysql_native_password' where User = 'root';"
 	sudo systemctl restart mysql.service
 	echo "Fixed it!"
+}
+
+hook() {
+	ssh -vnNTR 3000:localhost:3000 root@freshfox.at
 }
 
 ${funcs[${ACTION}]}
