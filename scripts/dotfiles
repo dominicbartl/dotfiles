@@ -81,7 +81,13 @@ fixmysql() {
 }
 
 hook() {
-	ssh -vnNTR 3000:localhost:3000 root@freshfox.at
+	# https://hackernotes.io/simple-recipe-forwarding-webhooks-local-development-environment/
+	local remoteport=3000
+	local localport=3000
+	# remoteport:localhost:localport
+	echo "Forwarding ${ORANGE}${BOLD}hook.freshfox.at${R} > ${ORANGE}${BOLD}remote:${remoteport}${R} > ${ORANGE}${BOLD}localhost:${localport}${R}"
+	echo ""
+	ssh -vnNTR ${remoteport}:localhost:${localport} root@hook.freshfox.at
 }
 
 ${funcs[${ACTION}]}
