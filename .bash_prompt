@@ -88,7 +88,7 @@ R=$'\e[0m'
 #	small=$(cat $DOTFILES_DATA/.smallprompt)
 #if [ $small -eq 1 ]
 #	then
-	export PS1='\[${BOLD}\]\[${GREEN}\]\w\[${BLUE}\]$(parse_git_branch)\[${R}\]\$ '
+	export PS1='\[\e]0;\W\a\]\[${BOLD}\]\[${GREEN}\]\w\[${BLUE}\]$(parse_git_branch)\[${R}\]\$ '
 #else
 #	export PS1='\[${YELLOW}\]\W\[${BOLD}\]\[${BLUE}\]$(parse_git_branch)\[${R}\]\[${ORANGE}\]\$ \[${R}\]'
 
