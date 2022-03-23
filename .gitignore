@@ -1,2 +1,4 @@
 data/.smallprompt
 .idea/
+
+.env_variables

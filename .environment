@@ -1,6 +1,6 @@
 #!/bin/bash
-export JDK_HOME=/usr/lib/jvm/java-8-oracle
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JDK_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export ANDROID_HOME=~/bin/android-sdk
 export MAVEN_OPTS="-XX:MaxPermSize=256m -XX:PermSize=256m"
 

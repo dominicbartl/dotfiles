@@ -23,7 +23,7 @@
 [pager]
 	diff =
 [core]
-	editor = vim
+	editor = "vim -c 'startinsert'"
 [branch]
 	autosetuprebase = always
 [gitflow "branch"]

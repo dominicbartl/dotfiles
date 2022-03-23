@@ -13,8 +13,9 @@ function mkcd {
 	cd $1
 }
 function myip {
-	(ifconfig enp2s0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}') || echo "enp2s0 not available"
-    (ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}') || echo "wlan0 not available"
+	(ifconfig enp2s0 | grep "inet" | awk -F: '{print $2}' | awk '{print $1}') || echo "enp2s0 not available"
+    (ifconfig wlan0 | grep "inet" | awk -F: '{print $2}' | awk '{print $1}') || echo "wlan0 not available"
+    (ifconfig wlp3s0 | grep "inet" | awk -F: '{print $2}' | awk '{print $1}') || echo "wlp3s0 not available"
 	curl ipecho.net/plain ; echo
 }
 alias llg="ll|grep"
@@ -58,3 +59,7 @@ call() {
 }
 
 alias w='work'
+
+alias dns='dig $1 ANY +noall +answer'
+
+alias lg="lazygit"
