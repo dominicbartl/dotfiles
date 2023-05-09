@@ -15,27 +15,8 @@ man() {
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 			man "$@"
 }
-
-# Setup auto complete for work script
-function work() {
 	
-	cd $1
-	if [ -f ".work" ]
-	then
-		./.work
-	fi
-	if [ -f "package.json" ]
-	then
-		local nodeVersion="$(jq -r '.engines.node' package.json)";
-		nvm install "${nodeVersion}"
-	fi
-}
-
-_workComplete()
-{
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -d -- $cur) )
-}
-
-complete -F _workComplete work
-
+# https://unix.stackexchange.com/questions/43601/how-can-i-set-my-default-shell-to-start-up-tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi

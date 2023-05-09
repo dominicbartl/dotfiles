@@ -1,2 +1,0 @@
-#!/bin/bash
-java -jar $DOTFILES/scripts/Micro16_Simulator_2.1.jar

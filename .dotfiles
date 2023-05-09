@@ -4,7 +4,7 @@
 #	source "$file"
 #done
 export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export PATH=$PATH:$DOTFILES/scripts
+export PATH=$PATH:$DOTFILES/bin
 
 # set default prompt to large one
 export DOTFILES_DATA="$DOTFILES/data"

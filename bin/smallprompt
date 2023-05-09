@@ -1,0 +1,12 @@
+#!/bin/bash
+
+small=$(cat $DOTFILES_DATA/.smallprompt)
+
+# toggle var
+if [ $small -eq 1 ]
+	then
+	echo 0 > $DOTFILES_DATA/.smallprompt
+else
+	echo 1 > $DOTFILES_DATA/.smallprompt
+fi
+df update

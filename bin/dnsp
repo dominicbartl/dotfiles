@@ -1,0 +1,119 @@
+#!/bin/bash
+
+# A DNS propagation checker. Fetches in many DNS servers around
+# the world for IPs assigned to a given domain.
+#
+# Author: José Lopes de Oliveira Júnior <http://joselop.es>
+#
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#
+#TODO: - Add more DNS servers around the world.
+
+
+#
+# Global Variables
+#
+
+DOMAIN=""
+REGEX="^[a-zA-Z0-9\.-]*(.com|.net|.org|.gov|.br|.es|.uk|.at|.de)$"
+
+# Adding more servers
+# The variable which stores IPs uses spaces as
+# delimiter. That which stores names uses sem-
+# icolons.
+#
+# Remember that the N'th IP corresponds to the
+# N'th name. So, be careful when editing this,
+# to avoid mistakes.
+declare -A DNSERVERS
+DNSERVERS["[US] Google Public DNS"]="8.8.8.8"
+DNSERVERS["[US] OpenDNS"]="208.67.222.222"
+DNSERVERS["[US] Level 3"]="209.244.0.3"
+DNSERVERS["[US] UnblockDNS"]="168.235.69.200"
+DNSERVERS["[BR] Universo Online (UOL)"]="200.221.11.100"
+DNSERVERS["[IT] Telecom Italia"]="88.34.14.238"
+DNSERVERS["[TR] TTNET"]="195.175.39.39"
+DNSERVERS["[PK] Supernet"]="203.130.2.3"
+#DNSERVERS[""]=""
+#DNSERVERS[""]=""
+
+USAGE="
+USAGE: "${0##*/}" DOMAIN
+
+EXAMPLE
+ $ ./"${0##*/}" joselop.es
+
+NOTE
+ DOMAIN MUST be a valid domain like www.joselop.es or 
+ joselop.es. Do NOT use \"http://\" (or something like)
+ as prefix.
+"
+
+#
+# Functions
+#
+
+main(){
+#
+# Iterates over IPs list, getting the respective server name and
+# checking what is the IP of $DOMAIN in that server.
+#
+
+    # Output's header
+    printf "%-30s %15s\n" "     DNS SERVER" "ASSOCIATED IP"
+    echo "     ========================= ==============="
+    
+    # For each IP, gets its server name,
+    # updates server name's list and
+    # figure out the IP for $DOMAIN in
+    # that DNS server.
+    for name in "${!DNSERVERS[@]}"; do
+        ip=${DNSERVERS[$name]} 
+        
+        printf "%-30s %15s\n" "$name" "$(answer "$ip" "$DOMAIN")"
+    done
+
+    return $?
+}
+
+answer(){
+#
+# This is the program's core system.
+# Receives DNS's IP and Domain through $1 and $2.
+# Returns the IP associated to that Domain.
+#
+    dig @"$1" "$2" | grep -a1 "ANSWER SECTION" | tail -1 | awk '{print $NF}'
+}
+
+#
+# Main
+#
+
+if [ $# -gt "0" ]; then
+    DOMAIN="$1"
+else
+    echo -n "Domain: "
+    read -r
+    DOMAIN="$REPLY"
+fi
+
+ if ping -c 1 $DOMAIN > /dev/null 2>&1; then
+        main
+        exit $?
+    else
+        echo -e "\n$DOMAIN is offline or you misstyped the domain."
+        exit 2
+    fi
