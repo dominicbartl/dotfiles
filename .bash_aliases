@@ -63,3 +63,4 @@ alias w='work'
 alias dns='dig $1 ANY +noall +answer'
 
 alias lg="lazygit"
+alias vim=nvim
