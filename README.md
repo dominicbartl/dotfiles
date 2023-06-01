@@ -4,8 +4,14 @@
 
     ln -s dotfiles/.vimrc ~/.vimrc
     ln -s dotfiles/.gitconfig ~/.gitconfig
-    ln -s dotfiles/config/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-    ln -s dotfiles/fuzzy-windows.conf ~/.config/fuzzy-windows.conf
+    ln -s ~/dotfiles/config/.tmux.conf ~/.tmux.conf
+
+```bash
+git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
+# prefix + I
+
+```
 
 ## Source (.bashrc, .bash_profile, .profile)
     source dotfiles/.dotfiles
