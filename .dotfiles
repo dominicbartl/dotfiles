@@ -13,4 +13,3 @@ export DOTFILES_DATA="$DOTFILES/data"
 source $DOTFILES/.bash_aliases
 source $DOTFILES/.bash_config
 source $DOTFILES/.bash_prompt
-source $DOTFILES/.environment
