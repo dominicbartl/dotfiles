@@ -64,3 +64,4 @@ alias dns='dig $1 ANY +noall +answer'
 
 alias lg="lazygit"
 alias vim=nvim
+alias serve="python3 -m http.server 8081"
